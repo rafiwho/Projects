@@ -123,7 +123,6 @@ class GitGUI:
         else:
             messagebox.showerror("Error", "Please enter a valid Git URL.")
 
-if __name__ == "__main__":
-    root = tk.Tk()
-    app = GitGUI(root)
-    root.mainloop()
+root = tk.Tk()
+app = GitGUI(root)
+root.mainloop()
