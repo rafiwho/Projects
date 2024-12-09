@@ -1,0 +1,4 @@
+Total Packets: 10
+Average Packet Size: 98
+Protocol Distribution:
+Protocol 1: 10

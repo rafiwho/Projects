@@ -4,21 +4,28 @@
 #include <netinet/udp.h>
 #include <arpa/inet.h>
 #include <bits/stdc++.h>
+#include <thread>
+#include <mutex>
+
 // Global variables to track statistics
 std::map<int, int> protocolCount; // Stores protocol usage count
 int packetCount = 0;
 int totalPacketSize = 0;
+std::mutex mtx; // Mutex to protect shared variables
 
 // Function to analyze and update traffic statistics
 void analyzeTraffic(const struct pcap_pkthdr *pkthdr, int protocol) {
+    std::lock_guard<std::mutex> lock(mtx); // Lock to ensure thread safety
     packetCount++;
     totalPacketSize += pkthdr->len;
     protocolCount[protocol]++;
 }
-
 // Filtering variables (currently set to capture all traffic)
+
 int filterProtocol = -1; // -1 means no protocol filtering
-std::string filterIP = ""; // Empty string means no IP filtering
+// For TCP: filterProtocol = IPPROTO_TCP
+// For UDP: filterProtocol = IPPROTO_UDP
+std::string filterIP = "10.0.0.1"; // Empty string means no IP filtering
 
 // Packet handler function
 void packetHandler(u_char *userData, const struct pcap_pkthdr *pkthdr, const u_char *packet) {
@@ -76,19 +83,30 @@ void saveStatsToFile() {
     outFile.close();
 }
 
+// Capture function for packet capturing in a separate thread
+void capturePackets(pcap_t *handle) {
+    pcap_loop(handle, 10, packetHandler, nullptr); // Capture 10 packets
+}
+
 int main() {
     char errbuf[PCAP_ERRBUF_SIZE];
 
     // Open the network interface for packet capture
-    pcap_t *handle = pcap_open_live("eno1", BUFSIZ, 1, 1000, errbuf); // Use "eno1" interface
-    if (handle == nullptr) {
+    pcap_t *handle1 = pcap_open_live("h1-eth0", BUFSIZ, 1, 1000, errbuf);
+
+    if (handle1 == nullptr) {
         std::cerr << "Error opening device: " << errbuf << '\n';
         return 1;
     }
 
-    // Capture packets indefinitely (or specify a finite number)
-    pcap_loop(handle, 10, packetHandler, nullptr); // Capture 10 packets
-    pcap_close(handle);
+    // Capture packets in a separate thread
+    std::thread thread1(capturePackets, handle1);
+
+    // Wait for the thread to finish capturing
+    thread1.join();
+
+    // Close the pcap handle
+    pcap_close(handle1);
 
     // Display and save statistics after capture
     displayTrafficStats();
