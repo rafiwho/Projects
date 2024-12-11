@@ -1,0 +1,81 @@
+/* CSS for service buttons */
+.service_button {
+    transition: transform 0.3s; /* Add transition for smooth hover effect */
+}
+
+/* Hover effect */
+.service_button:hover{
+    transform: scale(1.1); /* Scale up the image on hover */
+}
+
+
+/* CSS for hotOpportunity section */
+.hotOpportunity {
+    transition: border-color 0.3s; /* Add transition for smooth hover effect */
+    border: 2px solid transparent; /* Initially, set a transparent border */
+}
+
+/* Hover effect */
+.hotOpportunity:hover {
+    border-color: rgb(17, 10, 10); /* Change border color on hover */
+}
+
+.container {
+    max-width: 400px;
+    margin: 100px auto;
+  }
+  
+  .login-form {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .login-form h2 {
+    text-align: center;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-group label {
+    display: block;
+    font-weight: bold;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+  
+  .signup-link {
+    text-align: center;
+  }
+  
+  .signup-link a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .signup-link a:hover {
+    text-decoration: underline;
+  }
+  

@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" name="theme-color" content="#ffffff">
+
+    <title>CodePortal</title>
+    <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.6.0/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Lato google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Manrope:wght@400;500;600;700;800&family=Salsa&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body id="home">
+    <nav class="bg-slate-300">
+        <div class="navbar bg-base-100 w-[85%] mx-auto my-0 bg-slate-300">
+            <div>
+                <img class="h-14 w-16" src="{{ url_for('static',filename='images/favicon.png')}}" alt="">
+            </div>
+            <div class="navbar-start">
+                <div class="dropdown">
+                    <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h8m-8 6h16" />
+                        </svg>
+                    </div>
+                    <ul tabindex="0"
+                        class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                        <li><a href="#home">Home</a></li>
+                        <li>
+                            <a>Browse Opportunities</a>
+                            <ul class="p-2">
+                                <li><a href="#competitions">Competitions</a></li>
+                                <li><a href="#resources">Resources</a></li>
+                                <li><a href="#blogs">Blog</a></li>
+                                <li><a href="#courses">Courses</a></li>
+                                <li><a href="#practice">Practice</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#footer">About Us</a></li>
+                    </ul>
+                </div>
+                <a class="btn btn-ghost text-xl"><span class="text-4xl text-red-900 font-extrabold">Code</span>
+                    <span class="text-4xl text-green-900 font-extrabold ml-[-5px]">Portal</span></a>
+            </div>
+            <div class="navbar-center hidden lg:flex pr-48">
+                <ul class="menu menu-horizontal px-1">
+                    <li><a href="#home">Home</a></li>
+                    <li>
+                        <details>
+                            <summary>Browse Opportunities</summary>
+                            <ul class="p-2">
+                                <li><a href="#competitions">Competitions</a></li>
+                                <li><a href="#resources">Resources</a></li>
+                                <li><a href="#blogs">Blog</a></li>
+                                <li><a href="#courses">Courses</a></li>
+                                <li><a href="#practice">Practice</a></li>
+                            </ul>
+                        </details>
+                    </li>
+                    <li><a href="#footer">About Us</a></li>
+                </ul>
+            </div>
+            <div class="pr-10 flex gap-6">
+                <div class="navbar pr-[-5px]">
+                    <a class="btn bg-red-300 rounded-2xl px-6 text-xl" id="handleLogin">Log in</a>
+                </div>
+                <div class="navbar">
+                    <a class="btn bg-red-300 rounded-2xl px-6 text-xl" id="handleSignup">Sign up</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header content is here -->
+    <header class="bg-[#7a2a2a] ">
+        <header class="bg-[#7a2a2a] flex items-center">
+            <div class="h-screen flex-grow">
+                <p class="text-white font-extrabold text-[55px] flex justify-center mt-56 pb-10 pl-12">Explore New
+                    Opportunities!</p>
+
+                <label class="input input-bordered flex items-center gap-2 m-40 mt-[-1px] ">
+                    <input type="text" class="grow w-36" placeholder="Which opportunity are you looking for?" />
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"
+                        class="w-4 h-4 opacity-70">
+                        <path fill-rule="evenodd"
+                            d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
+                            clip-rule="evenodd" />
+                    </svg>
+                </label>
+            </div>
+            <div>
+                <img class="h-[720px]" src="{{ url_for('static',filename='images/header.png')}}" alt="">
+            </div>
+        </header>
+
+
+
+    </header>
+
+    <!-- Main content  -->
+    <!-- latest opportunity -->
+    <section id="competitions">
+        <div class=" flex justify-evenly mt-12 w-[70%] mx-auto my-0">
+            <div>
+                <img class="w-20 service_button" src="{{ url_for('static',filename='images/competition.png')}}" alt="">
+                <p class="text-gray-400">Competitions</p>
+            </div>
+            <div>
+                <img class="w-20 service_button" src="{{ url_for('static',filename='images/resource-allocation.png')}}" alt="">
+                <p class="text-gray-400">Resources</p>
+            </div>
+            <div>
+                <img class="w-20 service_button" src="{{ url_for('static',filename='images/blogging.png')}}" alt="">
+                <p class="text-gray-400">Blog Post</p>
+            </div>
+            <div>
+                <img class="w-20 service_button" src="{{ url_for('static',filename='images/webinar.png')}}"  alt="">
+                <p class="text-gray-400">Courses</p>
+            </div>
+            <div>
+                <img class="w-20 service_button" src="{{ url_for('static',filename='images/practice.png')}}" alt="">
+                <p class="text-gray-400">Practice</p>
+            </div>
+
+        </div>
+        <div class="w-[90%] mx-auto my-0 mt-14 mb-14 flex justify-evenly">
+
+            <div class="card w-96 bg-base-100 shadow-xl hotOpportunity">
+                <figure><img src="{{ url_for('static',filename='images/gc.jpg')}}" alt="Shoes" /></figure>
+                <div class="card-body">
+                    <h2 class="card-title">
+                        Googling Contest - Spring 2024”
+                        <div class="badge badge-secondary">Hot</div>
+                    </h2>
+                    <div class="card-actions justify-start">
+                        <div class="badge badge-outline">Details</div>
+                        <div class="badge badge-outline">Register</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card w-96 bg-base-100 shadow-xl hotOpportunity">
+                <figure><img src="{{ url_for('static',filename='images/Take-oof.jpg')}}" alt="Shoes" /></figure>
+                <div class="card-body">
+                    <h2 class="card-title">
+                        DIU Take-Off Programming Contest - Spring 2024
+                        <div class="badge badge-secondary">Hot</div>
+                    </h2>
+                    <div class="card-actions justify-start">
+                        <div class="badge badge-outline">Details</div>
+                        <div class="badge badge-outline">Register</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card w-96 bg-base-100 shadow-xl hotOpportunity">
+                <figure><img src="{{ url_for('static',filename='images/UTA.jpg')}}" alt="Shoes" /></figure>
+                <div class="card-body">
+                    <h2 class="card-title">
+                        Unlock the Algorithm Programming Contest
+                        <div class="badge badge-secondary">Hot</div>
+                    </h2>
+                    <div class="card-actions justify-start">
+                        <div class="badge badge-outline">Details</div>
+                        <div class="badge badge-outline">Register</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!--Deadline Approaching  -->
+    <section class="w-[80%] mx-auto my-0 mb-14">
+        <div class="flex gap-40">
+            <div>
+                <div class="flex mb-3">
+                    <img class="w-7" src="{{ url_for('static',filename='images/deadline.png')}}" alt="">
+                    <p>Deadline Approaching</p>
+                </div>
+                <hr>
+                <div class="flex justify-around mt-8">
+                    <div>
+                        <div>
+                            <div class="flex mb-10 gap-4">
+                                <img class="w-24" src="{{ url_for('static',filename='images/icpc.png')}}" alt="">
+                                <div>
+                                    <div>
+                                        <p>Competition</p>
+                                        <a class="text-[24px] text-blue-700"
+                                            href="https://imaginecup.microsoft.com/en-us" target="_blank">ICPC
+                                            International Collegiate
+                                            Programming Competitions</a>
+                                    </div>
+                                    <div class="flex mt-3">
+                                        <img class="w-7" src="{{ url_for('static',filename='images/deadline.png')}}" alt="">
+                                        <div class="flex gap-3">
+                                            <div>
+                                                <span class="countdown font-mono text-xl">
+                                                    <span style="--value:2;"></span>
+                                                </span>
+                                                days
+                                            </div>
+                                            <div>
+                                                <span class="countdown font-mono text-xl">
+                                                    <span style="--value:10;"></span>
+                                                </span>
+                                                hours
+                                            </div>
+                                            <div>
+                                                <span class="countdown font-mono text-xl">
+                                                    <span style="--value:24;"></span>
+                                                </span>
+                                                min
+                                            </div>
+                                            <div>
+                                                <span class="countdown font-mono text-xl">
+                                                    <span style="--value:27;"></span>
+                                                </span>
+                                                sec
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="flex mb-10 gap-4">
+                                <img class="w-24" src=".{{ url_for('static',filename='images/imagine-cup.png')}}" alt="">
+                                <div>
+                                    <div>
+                                        <p>Competition</p>
+                                        <a class="text-[24px] text-blue-700"
+                                            href="https://imaginecup.microsoft.com/en-us" target="_blank">Microsoft
+                                            Imagine Cup</a>
+                                    </div>
+                                    <div class="flex mt-3">
+                                        <img class="w-7" src="{{ url_for('static',filename='images/deadline.png')}}" alt="">
+                                        <div class="flex gap-3">
+                                            <div>
+                                                <span class="countdown font-mono text-xl">
+                                                    <span style="--value:1;"></span>
+                                                </span>
+                                                days
+                                            </div>
+                                            <div>
+                                                <span class="countdown font-mono text-xl">
+                                                    <span style="--value:10;"></span>
+                                                </span>
+                                                hours
+                                            </div>
+                                            <div>
+                                                <span class="countdown font-mono text-xl">
+                                                    <span style="--value:47;"></span>
+                                                </span>
+                                                min
+                                            </div>
+                                            <div>
+                                                <span class="countdown font-mono text-xl">
+                                                    <span style="--value:11;"></span>
+                                                </span>
+                                                sec
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="flex mb-10 gap-4">
+                                <img class="w-24" src="{{ url_for('static',filename='images/hashcode.jpg')}}" alt="">
+                                <div>
+                                    <div>
+                                        <p>Competition</p>
+                                        <a class="text-[24px] text-blue-700"
+                                            href="https://imaginecup.microsoft.com/en-us" target="_blank">Google Hash
+                                            Code</a>
+                                    </div>
+                                    <div class="flex mt-3">
+                                        <img class="w-7" src=".{{ url_for('static',filename='images/deadline.png')}}" alt="">
+                                        <div class="flex gap-3">
+                                            <div>
+                                                <span class="countdown font-mono text-xl">
+                                                    <span style="--value:1;"></span>
+                                                </span>
+                                                days
+                                            </div>
+                                            <div>
+                                                <span class="countdown font-mono text-xl">
+                                                    <span style="--value:3;"></span>
+                                                </span>
+                                                hours
+                                            </div>
+                                            <div>
+                                                <span class="countdown font-mono text-xl">
+                                                    <span style="--value:33;"></span>
+                                                </span>
+                                                min
+                                            </div>
+                                            <div>
+                                                <span class="countdown font-mono text-xl">
+                                                    <span style="--value:54;"></span>
+                                                </span>
+                                                sec
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="flex mb-5 gap-4">
+                                <img class="w-24" src="{{ url_for('static',filename='images/icfp.png')}}" alt="">
+                                <div>
+                                    <div>
+                                        <p>Competition</p>
+                                        <a class="text-[24px] text-blue-700"
+                                            href="https://imaginecup.microsoft.com/en-us" target="_blank">ICFP
+                                            Programming
+                                            Competitions</a>
+                                    </div>
+                                    <div class="flex mt-3">
+                                        <img class="w-7" src="{{ url_for('static',filename='images/deadline.png')}}" alt="">
+                                        <div class="flex gap-3">
+                                            <div>
+                                                <span class="countdown font-mono text-xl">
+                                                    <span style="--value:1;"></span>
+                                                </span>
+                                                days
+                                            </div>
+                                            <div>
+                                                <span class="countdown font-mono text-xl">
+                                                    <span style="--value:0;"></span>
+                                                </span>
+                                                hours
+                                            </div>
+                                            <div>
+                                                <span class="countdown font-mono text-xl">
+                                                    <span style="--value:24;"></span>
+                                                </span>
+                                                min
+                                            </div>
+                                            <div>
+                                                <span class="countdown font-mono text-xl">
+                                                    <span style="--value:27;"></span>
+                                                </span>
+                                                sec
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="badge badge-outline">More</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div>
+                <div class="flex mb-3 ">
+                    <img class="w-7" src="{{ url_for('static',filename='images/trending-topic.png')}}" alt="">
+                    <p>Trending</p>
+                </div>
+                <hr class="mb-12">
+                <div class="flex gap-4 mb-5">
+                    <img class="w-20 h-20" src="{{ url_for('static',filename='images/kick.png')}}" alt="">
+                    <div>
+                        <p class="text-[14px]">Competition</p>
+                        <a class="text-red-600 text-2xl"
+                            href="https://codingcompetitionsonair.withgoogle.com/events/kickstart"
+                            target="_blank">Google Kick Start</a>
+                    </div>
+                </div>
+                <div class="flex gap-4 mb-5">
+                    <img class="w-20 h-20" src="{{ url_for('static',filename='images/Coderbyte.png')}}" alt="">
+                    <div>
+                        <p class="text-[14px]">Competition</p>
+                        <a class="text-red-600 text-2xl"
+                            href="https://codingcompetitionsonair.withgoogle.com/events/kickstart"
+                            target="_blank">Coderbyte</a>
+                    </div>
+                </div>
+                <div class="flex gap-4 mb-5">
+                    <img class="w-20 h-20" src="{{ url_for('static',filename='images/leetcode.png')}}" alt="">
+                    <div>
+                        <p class="text-[14px]">Competition</p>
+                        <a class="text-red-600 text-2xl"
+                            href="https://codingcompetitionsonair.withgoogle.com/events/kickstart"
+                            target="_blank">LeetCode</a>
+                    </div>
+                </div>
+                <div class="flex gap-4 mb-5">
+                    <img class="w-20 h-20" src="{{ url_for('static',filename='images/800px-HackerRank_Icon-1000px.png')}}" alt="">
+                    <div>
+                        <p class="text-[14px]">Competition</p>
+                        <a class="text-red-600 text-2xl"
+                            href="https://codingcompetitionsonair.withgoogle.com/events/kickstart"
+                            target="_blank">HackerRank</a>
+                    </div>
+                </div>
+                <div class="badge badge-outline">More</div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Courses -->
+    <section class="w-[85%] mx-auto my-0 pb-14 pt-10" id="courses">
+        <div class="pb-8">
+            <p class="text-center text-4xl  font-bold">Our Courses</p>
+            <hr class="mb-3 w-[20%] mx-auto my-0 mt-4">
+        </div>
+
+        <div class="flex justify-evenly">
+            <!-- First course -->
+            <div>
+                <div class="card w-96 bg-base-100 shadow-xl hotOpportunity">
+                    <figure><img src="{{ url_for('static',filename='images/fundaProg.jpg')}}" alt="Programming Fundamentals" /></figure>
+                    <div class="card-body">
+                        <h2 class="card-title">
+                            Programming Fundamentals
+
+                        </h2>
+                        <p><span class="font-bold">Skill you will gain: </span>Begin your coding journey with this
+                            concise course, providing an overview of fundamental programming...</p>
+                        <div class="pt-5 flex gap-1 pb-2">
+                            <img class="w-5" src="{{ url_for('static',filename='images/star.png')}}" alt="">
+                            <div class="flex gap-5">
+                                <p class="font-bold">4.7</p>
+                                <p>(5.7k reviews)</p>
+                            </div>
+                        </div>
+                        <div class="card-actions justify-start">
+                            <div class="badge badge-outline">Enroll Now</div>
+                        </div>
+                        <div class="flex w-[70%]">
+                            <p>Beginner</p>
+                            <p>. Course</p>
+                            <p>. 1-4 weeks</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Second Course -->
+            <div>
+                <div class="card w-96 bg-base-100 shadow-xl hotOpportunity">
+                    <figure><img src="{{ url_for('static',filename='images/py2.jpg')}}" alt="Programming Fundamentals" /></figure>
+                    <div class="card-body">
+                        <h2 class="card-title">
+                            Python Basics: Start Coding Today
+
+                        </h2>
+                        <p><span class="font-bold">Skill you will gain: </span>Dive into Python programming with this
+                            beginner-friendly course. Learn the basics of Python syntax...</p>
+                        <div class="pt-5 flex gap-1 pb-2">
+                            <img class="w-5" src="{{ url_for('static',filename='images/star.png')}}" alt="">
+                            <div class="flex gap-5">
+                                <p class="font-bold">4.8</p>
+                                <p>(8.2k reviews)</p>
+                            </div>
+                        </div>
+                        <div class="card-actions justify-start">
+                            <div class="badge badge-outline">Enroll Now</div>
+                        </div>
+                        <div class="flex w-[70%]">
+                            <p>Beginner</p>
+                            <p>. Course</p>
+                            <p>. 1-4 weeks</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Third Course -->
+            <div>
+                <div class="card w-96 bg-base-100 shadow-xl hotOpportunity">
+                    <figure><img src="{{ url_for('static',filename='images/ualzuwin.png')}}" alt="Programming Fundamentals" /></figure>
+                    <div class="card-body">
+                        <h2 class="card-title">
+                            C++ Crash Course: Learn Data Structures Fast
+
+                        </h2>
+                        <div><span class="font-bold">Skill you will gain: </span>Discover essential data structures and
+                            algorithms using C++... </div>
+                        <div class="pt-5 flex gap-1 pb-2">
+                            <img class="w-5" src="{{ url_for('static',filename='images/star.png')}}" alt="">
+                            <div class="flex gap-5">
+                                <p class="font-bold">4.7</p>
+                                <p>(5.7k reviews)</p>
+                            </div>
+                        </div>
+                        <div class="card-actions justify-start">
+                            <div class="badge badge-outline">Enroll Now</div>
+                        </div>
+                        <div class="flex w-[90%]">
+                            <p>Beginner</p>
+                            <p>. Specialization</p>
+                            <p>. 3-6 Months</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="flex justify-evenly pt-14 ">
+            <!-- fourth course -->
+            <div>
+                <div class="card w-96 bg-base-100 shadow-xl hotOpportunity">
+                    <figure><img src="{{ url_for('static',filename='images/java.jpg')}}" alt="Programming Fundamentals" /></figure>
+                    <div class="card-body">
+                        <h2 class="card-title">
+                            Java Programming Basics
+
+                        </h2>
+                        <p><span class="font-bold">Skill you will gain: </span>Explore Java syntax, data types, control
+                            flow, classes, and objects. Ideal for those new..</p>
+                        <div class="pt-5 flex gap-1 pb-2">
+                            <img class="w-5" src="{{ url_for('static',filename='images/star.png')}}" alt="">
+                            <div class="flex gap-5">
+                                <p class="font-bold">4.7</p>
+                                <p>(5.7k reviews)</p>
+                            </div>
+                        </div>
+                        <div class="card-actions justify-start">
+                            <div class="badge badge-outline">Enroll Now</div>
+                        </div>
+                        <div class="flex w-[70%]">
+                            <p>Beginner</p>
+                            <p>. Course</p>
+                            <p>. 3-6 weeks</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- fifth Course -->
+            <div>
+                <div class="card w-96 bg-base-100 shadow-xl hotOpportunity">
+                    <figure><img src="{{ url_for('static',filename='images/dsaaaa.jpg')}}" alt="Programming Fundamentals" /></figure>
+                    <div class="card-body">
+                        <h2 class="card-title">
+                            Data Structures and Algorithms
+
+                        </h2>
+                        <p><span class="font-bold">Skill you will gain: </span> Dive into arrays, linked lists, and
+                            more. Perfect for learners seeking a quick introduction to programming...</p>
+                        <div class="pt-5 flex gap-1 pb-2">
+                            <img class="w-5" src="{{ url_for('static',filename='images/star.png')}}" alt="">
+                            <div class="flex gap-5">
+                                <p class="font-bold">4.8</p>
+                                <p>(8.2k reviews)</p>
+                            </div>
+                        </div>
+                        <div class="card-actions justify-start">
+                            <div class="badge badge-outline">Enroll Now</div>
+                        </div>
+                        <div class="flex w-[80%]">
+                            <p>Specialization</p>
+                            <p>. Course</p>
+                            <p>. 3-6 Months</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- sixth Course -->
+            <div>
+                <div class="card w-96 bg-base-100 shadow-xl hotOpportunity">
+                    <figure><img src="{{ url_for('static',filename='images/web.jpg')}}" alt="Programming Fundamentals" /></figure>
+                    <div class="card-body">
+                        <h2 class="card-title">
+                            Full-Stack Web Development
+                            t
+                        </h2>
+                        <div><span class="font-bold">Skill you will gain: </span>This course covers both front-end and
+                            back-end technologies, including HTML, CSS, JavaScript, Node.js... </div>
+                        <div class="pt-5 flex gap-1 pb-2">
+                            <img class="w-5" src="{{ url_for('static',filename='images/star.png')}}" alt="">
+                            <div class="flex gap-5">
+                                <p class="font-bold">4.7</p>
+                                <p>(5.7k reviews)</p>
+                            </div>
+                        </div>
+                        <div class="card-actions justify-start">
+                            <div class="badge badge-outline">Enroll Now</div>
+                        </div>
+                        <div class="flex w-[70%]">
+                            <p>Mixed</p>
+                            <p>. Course</p>
+                            <p>. 5-8 Months</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Blog -->
+    <section id="blogs">
+        <div class="w-[90%] mx-auto my-0">
+            <div class="pb-8 mt-14">
+                <p class="text-center text-4xl  font-bold">Read Blogs</p>
+                <hr class="mb-3 w-[20%] mx-auto my-0 mt-4">
+            </div>
+            <div class="flex gap-16 ">
+                <div class="w-[65%] mb-10">
+                    <div>
+                        <div class="flex items-center mt-4" >
+                            <img class="w-10" src="{{ url_for('static',filename='images/topBlog.png')}}" alt="">
+                            <p class="font-bold">New Blogs</p>
+                        </div>
+                        <hr class="w-[15%] mb-5 mt-3">
+                        <div class="flex-row gap-4 border-2 p-2  " style="border-color: rgb(78, 78, 202);">
+                            <!-- first blog -->
+                            <div class="hero bg-base-200 border-b-2 " style="border-color: blue;">
+                                <div class="hero-content flex-col lg:flex-row">
+                                    <img src="{{ url_for('static',filename='images/blog1.png')}}"
+                                        class="w-96 rounded-lg shadow-2xl hover:scale-105 transition-transform duration-300" />
+                                    <div>
+                                        <h1 class="text-3xl font-bold">What Is Programming? And How To Get Started</h1>
+                                        <a class="py-3" href="https://www.coursera.org/articles/what-is-programming"
+                                            target="_blank">Programming refers to a technological process for telling a
+                                            computer which tasks to perform in order to solve problems. You can think of
+                                            programming as a collaboration between humans and computers, in which humans
+                                            create instructions for a computer... </a>
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <!-- Second blog -->
+                            <div class="hero bg-base-200  border-b-2 " style="border-color: blue;">
+                                <div class="hero-content flex-col lg:flex-row">
+                                    <img src="{{ url_for('static',filename='images/blog2.webp')}}"
+                                        class="w-96 rounded-lg shadow-2xl hover:scale-105 transition-transform duration-300" />
+                                    <div>
+                                        <a class="text-3xl font-bold"
+                                            href="https://www.datacamp.com/blog/how-to-learn-python-expert-guide">How to
+                                            Learn Python From Scratch in 2024: An Expert Guide</a><br>
+                                        <a class="py-3"
+                                            href="https://www.datacamp.com/blog/how-to-learn-python-expert-guide"
+                                            target="_blank">As one of the most popular programming languages out there,
+                                            many people want to learn Python. But how do you go about getting started?
+                                            In this guide, we explore everything you need to know to begin your learning
+                                            journey, including a step-by-step guide and learning plan... </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Third blog -->
+                            <div class="hero bg-base-200 border-b-2 " style="border-color: blue;">
+                                <div class="hero-content flex-col lg:flex-row">
+                                    <img src="{{ url_for('static',filename='images/3rd blog.webp')}}" class="w-96 rounded-lg shadow-2xl hover:scale-105 transition-transform duration-300" />
+                                    <div>
+                                        <a class="text-3xl font-bold"
+                                            href="https://www.forbes.com/advisor/education/it-and-tech/technology-careers-best-and-worst-states/">The
+                                            Best And Worst States For Technology Careers</a><br>
+                                        <a class="py-3"
+                                            href="https://www.forbes.com/advisor/education/it-and-tech/technology-careers-best-and-worst-states/"
+                                            target="_blank">There’s no place quite like San Francisco. With its dizzying
+                                            hills, pastel Victorian houses and fog-shrouded bridges, the Californian
+                                            metropolis makes for perfect postcards.But beyond its old-world charm and chilly summers, the San Francisco Bay Area is famously known as the global center of tech innovation... </a>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- fourth blog -->
+                            <div class="hero bg-base-200 border-b-2 " style="border-color: blue;">
+                                <div class="hero-content flex-col lg:flex-row">
+                                    <img src="{{ url_for('static',filename='images/blog4.png')}}"
+                                        class="w-96 rounded-lg shadow-2xl hover:scale-105 transition-transform duration-300" />
+                                    <div>
+                                        <a class="text-3xl font-bold"
+                                            href="https://www.datacamp.com/blog/how-to-learn-python-expert-guide">How to
+                                            Stay Motivated to Keep Learning to Code</a><br>
+                                        <a class="py-3"
+                                            href="https://www.datacamp.com/blog/how-to-learn-python-expert-guide"
+                                            target="_blank">It's hard to stay motivated and to continue learning in
+                                            today's world of constant change in technology, languages, and frameworks.
+                                            We may feel overwhelmed by the sheer amount of options, and how far the
+                                            rabbit hole goes down each one.So I wanted to share some of the things I do
+                                            to stay motivated to... </a>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- fifth blog -->
+                            <div class="hero bg-base-200">
+                                <div class="hero-content flex-col lg:flex-row">
+                                    <img src="{{ url_for('static',filename='images/fifthblog.png')}}"
+                                        class="w-96 rounded-lg shadow-2xl hover:scale-105 transition-transform duration-300" />
+                                    <div>
+                                        <a class="text-3xl font-bold"
+                                            href="https://www.datacamp.com/blog/how-to-learn-python-expert-guide">How To
+                                            Prepare For The Coding Competitions?</a><br>
+                                        <a class="py-3"
+                                            href="https://www.datacamp.com/blog/how-to-learn-python-expert-guide"
+                                            target="_blank">Candidates preparing for the coding language can attempt
+                                            various coding competitions online, free of charge or at a very minimal
+                                            cost. Coding competitions are important for programmers to freshen up their
+                                            programming skills regularly. It provides a way for the programmers to
+                                            analyse their coding skills. There are many websites that provide online
+                                            compilers with frameworks... </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="badge badge-outline mt-5">More</div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="w-[30%] ">
+                    <div>
+                        <div class=" bg-blue-600 text-center p-6 mt-24 rounded-tr-3xl">
+                            <div class="flex items-center justify-center pb-5  text-white  ">
+                                <p class="text-3xl text-center font-bold">Most Read</p>
+                            </div>
+
+                            <div class="flex gap-3 mb-5 items-center">
+                                <img class="w-16 h-16" src="{{ url_for('static',filename='images/circle-1.png')}}"alt="">
+                                <a class=" text-white text-[18px] flex text-start"
+                                    href="https://www.geeksforgeeks.org/math-in-competitive-programming/?ref=lbp"
+                                    target="_blank">Must Do Math For Competitive Programming</a>
+                            </div>
+
+                            <div class="flex gap-3 mb-5 items-center">
+                                <img class="w-16 h-16" src="{{ url_for('static',filename='images/circle-2.png')}}" alt="">
+                                <a class=" text-white text-[18px] flex text-start"
+                                    href="https://www.geeksforgeeks.org/math-in-competitive-programming/?ref=lbp"
+                                    target="_blank">SQL Interview Questions CHEAT SHEET (2024)</a>
+                            </div>
+
+                            <div class="flex gap-3 mb-5 items-center">
+                                <img class="w-16 h-16" src="{{ url_for('static',filename='images/three.png')}}" alt="">
+                                <a class=" text-white text-[18px] flex text-start"
+                                    href="https://www.geeksforgeeks.org/5-best-languages-for-competitive-programming/?ref=lbp">Why Should You Do Competitive
+                                    Programming</a>
+                            </div>
+
+                            <div class="flex gap-3 mb-5 items-center">
+                                <img class="w-16 h-16" src="{{ url_for('static',filename='images/four.png')}}" alt="">
+                                <a class=" text-white text-[18px] flex text-start"
+                                    href="https://www.geeksforgeeks.org/5-best-languages-for-competitive-programming/?ref=lbp"
+                                    target="_blank">5 Best language For Competitive Programming</a>
+                            </div>
+
+                            <div class="flex gap-3 mb-5 items-center">
+                                <img class="w-16 h-16" src="{{ url_for('static',filename='images/circle-5.png')}}" alt="">
+                                <p class=" text-white text-[18px] flex text-start">Is Competitive Programming Must For
+                                    Software Development Rules?</p>
+                            </div>
+
+                            <div class="flex gap-3 mb-5 items-center">
+                                <img class="w-16 h-16" src="{{ url_for('static',filename='images/circle-6.png')}}" alt="">
+                                <p class=" text-white text-[18px] flex text-start">Can ChatGpt Be Used to Solve
+                                    Competitive Coding?</p>
+                            </div>
+                        </div>
+
+                        <div class=" mt-14 bg-red-400 " id="resources">
+                            <h1 class="text-center text-3xl font-bold pb-1 pt-5">Resources</h1>
+                            <div>
+                                <div>
+                                    <p class="p-5">You'll discover plenty of helpful programming resources right here.
+                                        Whether it's easy tutorials, simple courses, handy tools, or friendly forums,
+                                        everything you need to learn coding is at your fingertips.</p>
+                                </div>
+                                <div class="flex gap-3 mb-5 items-center justify-center">
+                                    <a class=" text-[18px] flex  text-center text-blue-700 pb-8"
+                                        href="https://www.geeksforgeeks.org/math-in-competitive-programming/?ref=lbp"
+                                        target="_blank">Click here for the resources</a>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="mt-14 bg-blue-400 p-5 rounded-br-3xl">
+                        <h1 class="text-center text-2xl font-bold pb-5"> Important blogs for beginner</h1>
+                       
+                        <div>
+                            <a class="text-red-800 " style="text-decoration: underline;" href="https://codeforces.com/blog/entry/98621">- Maybe why you're still grey after practicing every day</a>
+                        </div>
+                        <div>
+                            <a class="text-red-800" style="text-decoration: underline;" href="https://codeforces.com/blog/entry/126310">- Reason You are Bad at Codeforces — You are Not Russian Enough</a>
+                        </div>
+                        <div>
+                            <a class="text-red-800" style="text-decoration: underline;" href="https://codeforces.com/blog/entry/126875">- All You Need is Randomly Guessing — How to Improve at Codeforces</a>
+                        </div>
+                        <div>
+                            <a class="text-red-800" style="text-decoration: underline;" href="https://codeforces.com/blog/entry/13529">- Good Blog Post Resources about Algorithm and Data Structures</a>
+                        </div>
+                        <div>
+                            <a class="text-red-800" style="text-decoration: underline;" href="https://codeforces.com/blog/entry/91363">- List of almost all useful blogs ever published on Codeforces</a>
+                        </div>
+                        <div>
+                            <a class="text-red-800" style="text-decoration: underline;" href="https://codeforces.com/blog/entry/118882">- A Highly Experimental Training Plan for Beginners</a>
+                        </div>
+                        <div>
+                            <a class="text-red-800" style="text-decoration: underline;" href="https://codeforces.com/blog/entry/97058">- [GYM] 100 Easy Problems (Bootcamp)</a>
+                        </div>
+                        
+                       
+                    </div>
+
+                    <!-- Review -->
+                    <div>
+
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Practice -->
+    <section id="practice">
+
+        <div class="w-[90%] mx-auto my-0 pb-14">
+            <div class="pb-8 mt-14">
+                <p class="text-center text-4xl  font-bold">Do Practice</p>
+                <hr class="mb-3 w-[20%] mx-auto my-0 mt-4">
+            </div>
+            <div class="flex gap-10">
+                <!-- Codeforces -->
+                <div class="flex justify-center items-center flex-col ">
+                    <a class="pb-2" href="https://codeforces.com/problemset?order=BY_SOLVED_DESC" target="_blank">
+                        <img class="w-64 max-h-24 hover:scale-105 transition-transform duration-300" src="{{ url_for('static',filename='images/codeforces.png')}}" alt="description_of_image">
+                    </a>  
+                                    
+                </div>
+
+                <!--AtCoder  -->
+                <div class="flex justify-center items-center flex-col ">
+                    <a class="pb-2" href="https://atcoder.jp/contests/" target="_blank">
+                        <img class="w-64 max-h-24 hover:scale-105 transition-transform duration-300" src="{{ url_for('static',filename='images/atcoder.svg')}}" alt="description_of_image">
+                    </a>  
+                                    
+                </div>
+
+                <!-- vjudge -->
+                <div class="flex justify-center items-center flex-col ">
+                    <a class="pb-2" href="https://vjudge.net/contest" target="_blank">
+                        <img class="w-32 max-h-52 hover:scale-105 transition-transform duration-300" src="{{ url_for('static',filename='images/vjudge.jpg')}}" alt="description_of_image">
+                    </a>  
+                                    
+                </div>
+
+                <!-- Hackereartht -->
+                <div class="flex justify-center items-center flex-col ">
+                    <a class="pb-2" href="https://www.hackerearth.com/practice/" target="_blank">
+                        <img class="w-64 max-h-24 hover:scale-105 transition-transform duration-300" src="{{ url_for('static',filename='images/hackerearth.png')}}" alt="description_of_image">
+                    </a>  
+                                    
+                </div>
+
+                <!-- First -->
+                <div class="flex justify-center items-center flex-col ">
+                    <a class="pb-2" href="https://codeforces.com/" target="_blank">
+                        <img class="w-64 max-h-24 hover:scale-105 transition-transform duration-300" src="{{ url_for('static',filename='images/codeforces.png')}}" alt="description_of_image">
+                    </a>  
+                                    
+                </div>
+
+                <!-- First -->
+                <div class="flex justify-center items-center flex-col ">
+                    <a class="pb-2" href="https://codeforces.com/" target="_blank">
+                        <img class="w-64 max-h-24 hover:scale-105 transition-transform duration-300" src="{{ url_for('static',filename='images/codeforces.png')}}" alt="description_of_image">
+                    </a>  
+                                    
+                </div>
+
+                
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Login -->
+    <section>
+        <div id="login-form-container" class="hidden container">
+            <form action="#" class="login-form">
+              <h2>Login</h2>
+              <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Enter your username" required>
+              </div>
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+              </div>
+              <button type="submit">Login</button>
+            </form>
+            <div class="signup-link">
+              <p>Don't have an account? <a href="#">Sign up</a></p>
+            </div>
+          </div>
+          
+    </section>
+
+    <!-- Footer -->
+    <footer class=" bg-black text-center lg:text-left" id="footer">
+        <div
+            class="flex flex-col justify-between gap-20 lg:gap-60 lg:flex-row text-white pt-14 pb-14 w-9/12 mx-auto my-0">
+            <div class="flex-1 lg:-mt-4">
+                <div class="flex items-center gap-2">
+                    <img class="w-14" src="{{ url_for('static',filename='images/favicon.png')}}" alt="">
+                    <h1 class="text-3xl font-extrabold"><span
+                            class="text-4xl text-red-900 font-extrabold">Code</span><span
+                            class="text-4xl text-green-900 font-extrabold ml-[-1px]">Portal</span></h1>
+                </div>
+                <p class="pt-7 text-[#CFCFAF] ">Dedicated to seamless excellence.</p>
+                <div class="pt-4 flex flex-col gap-3 ml-[-37px]">
+                    <div class="flex items-center gap-3 justify-center lg:justify-start">
+                        <img class="w-[10%]" src="{{ url_for('static',filename='images/gmail.png')}}" alt="">
+                        <p class="text-[#CFCFAF]">codeportal@support.com</p>
+                    </div>
+                    <div class="flex items-center gap-3 justify-center lg:justify-start">
+                        <img class="w-[10%]" src="{{ url_for('static',filename='images/phone-call.png')}}" alt="">
+                        <p class="text-[#CFCFAF]">(+62) 123-321-543</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flex-1 flex lg:gap-48">
+                <div class="flex-1">
+                    <h2 class="text-xl pb-10">
+                        Company
+                    </h2>
+                    <div class="flex flex-col text-[#CFCFAF]">
+                        <a href="">About Us</a>
+                        <a href="">Careers</a>
+                        <a href="">News</a>
+                        <a href="">Article</a>
+                    </div>
+                </div>
+                <div class="flex-1">
+                    <h2 class="text-xl pb-10">Support</h2>
+                    <p class="text-[#CFCFAF]">
+                        Help Center<br>
+                        FAQ<br>
+                        Contact<br>
+                    </p>
+                </div>
+            </div>
+            <div class="flex-1">
+                <h2 class="text-xl pb-10">Services</h2>
+                <p class="text-[#CFCFAF] pb-10">
+                    Mentorship Program <br>
+                    Training Workshops <br>
+                    Community Forums <br>
+                    Event Promotion <br>
+                </p>
+
+
+            </div>
+        </div>
+    </footer>
+    <script src="{{url_for('static',filename='script.js')}}"></script>
+</body>
+
+</html>
